@@ -26,7 +26,7 @@ public class File {
         arq.write(data);
     }   
 
-    public Dado read(Dado data, int pos) throws IOException{
+    public Filme read(Filme data, int pos) throws IOException{
         byte[] readed;
         arq.seek(pos);
         len = arq.readInt();
