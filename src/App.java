@@ -1,6 +1,3 @@
-import java.io.RandomAccessFile;
-import java.lang.reflect.Field;
-
 public class App {
     public static void main(String[] args) throws Exception {
         Dado l1 = new Dado("a", 1, "titulo", "overview", 10, 15, 5, "pt-br", 2, "horror,comedia", "lalala");
@@ -9,19 +6,37 @@ public class App {
         Dado l3 = new Dado("a", 2, "abuble", "overview", 10, 15, 5, "pt-br", 2, "horror,comedia", "lalala");
         Dado l4 = new Dado();
 
-        Header h = new Header(2);
+        Header h = new Header(1);
 
         File path = new File("banco.db", "rw");
         
 
         byte[] b;
-        int len;
         try {
 
+            path.file();
+
             /* ESCRITA */
+            //Cabeçalho
             b = h.toByteArray();
+            path.createHeader(b);
+            
+            //l1
+            b = l1.toByteArray();
             path.create(b);
-            //arq.write(b);
+
+            //l3
+            b = l3.toByteArray();
+            path.create(b);
+
+
+            /* LEITURA */
+            l2 = path.read(l2, 4);
+            System.out.println(l2);
+
+            l4 = path.read(l4, 80);
+            System.out.println(l4);
+
 
             /*
             long p1 = arq.getFilePointer();
@@ -37,7 +52,7 @@ public class App {
             
             /* LEITURA */
             
-            
+
             /*arq.seek(4);
             len = arq.readInt();
             b = new byte[len];
@@ -54,10 +69,10 @@ public class App {
             //System.out.println(p2);
         
 
-            
-            arq.close();
             */
-        
+            
+            //fechando o arquivo
+            path.end();
 
         } catch (Exception e) {
             System.out.println("O erro aqui");
