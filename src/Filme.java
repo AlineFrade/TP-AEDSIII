@@ -12,7 +12,15 @@ public class Filme {
     protected Date releaseDate;
 
     public Filme(){
-
+        lapide = "";
+        id = 0;
+        title = "";
+        releaseDate = new Date(0);
+        overview = "";
+        popularity = 0;
+        originalLanguage = "";
+        quantityGenre = 0;
+        genre = null;
     }
 
     public Filme(int id, String title, Date releaseDate, String overview, int popularity,
@@ -72,20 +80,20 @@ public class Filme {
         return popularity;
     }
 
-    public void setOriginalLanguage(String overview) {
-        this.overview = overview;
+    public void setOriginalLanguage(String originalLanguage) {
+        this.originalLanguage = originalLanguage;
     }
 
     public String getOriginalLanguage() {
-        return overview;
+        return originalLanguage;
     }
 
-    public void setQuantityGenre(int popularity) {
-        this.popularity = popularity;
+    public void setQuantityGenre(int quantityGenre) {
+        this.quantityGenre = quantityGenre;
     }
 
     public int getQuantityGenre() {
-        return popularity;
+        return quantityGenre;
     }
 
     public String getGenre() {
