@@ -12,19 +12,13 @@ public class Dado {
 
     }
 
-    public Dado(String lapide, int id, String title, String overview, int popularity, int voteCount, int voteAverage,
-                String originalLanguage, int quantityGenre, String genre, String posterUrl){
-        this.lapide = lapide;
-        this.id = id;
+    public Dado(String title, String overview, int popularity,
+                int quantityGenre, String genre){
         this.title = title;
         this.overview = overview;
         this.popularity = popularity;
-        this.voteCount = voteCount;
-        this.voteAverage = voteAverage;
-        this.originalLanguage = originalLanguage;
         this.quantityGenre = quantityGenre;
         this.genre = genre;
-        this.posterUrl = posterUrl;
     }
 
     public String toString() {

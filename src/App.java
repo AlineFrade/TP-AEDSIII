@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Dado l1 = new Dado("a", 1, "titulo", "overview", 10, 15, 5, "pt-br", 2, "horror,comedia", "lalala");
+        Dado l1 = new Dado("titulo", "overview", 10, 2, "horror,comedia");
         Dado l2 = new Dado();
-        Dado l3 = new Dado("a", 2, "abuble", "overview", 10, 15, 5, "pt-br", 2, "horror,comedia", "lalala");
+        Dado l3 = new Dado("abuble", "overview", 10, 2, "horror,comedia");
         Dado l4 = new Dado();
         Header h = new Header(1);
         File path = new File("banco.db", "rw");
