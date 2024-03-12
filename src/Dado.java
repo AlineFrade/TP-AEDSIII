@@ -5,8 +5,8 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 public class Dado {
-    protected String lapide, title, overview, originalLanguage, genre, posterUrl;
-    protected int id, popularity, voteCount, voteAverage, quantityGenre;
+    protected String lapide, title, overview, genre;
+    protected int id, popularity, quantityGenre;
 
     public Dado(){
 
@@ -14,6 +14,8 @@ public class Dado {
 
     public Dado(String title, String overview, int popularity,
                 int quantityGenre, String genre){
+        lapide = "";
+        id = 1;
         this.title = title;
         this.overview = overview;
         this.popularity = popularity;
@@ -33,12 +35,8 @@ public class Dado {
         dos.writeUTF(this.title);
         dos.writeUTF(this.overview);
         dos.writeInt(this.popularity);
-        dos.writeInt(this.voteCount);
-        dos.writeInt(this.voteAverage);
-        dos.writeUTF(this.originalLanguage);
         dos.writeInt(this.quantityGenre);
         dos.writeUTF(this.genre);
-        dos.writeUTF(this.posterUrl);
         return baos.toByteArray();
     }
 
@@ -50,12 +48,8 @@ public class Dado {
         this.title = dis.readUTF();
         this.overview = dis.readUTF();
         this.popularity = dis.readInt();
-        this.voteCount = dis.readInt();
-        this.voteAverage = dis.readInt();
-        this.originalLanguage = dis.readUTF();
         this.quantityGenre = dis.readInt();
         this.genre = dis.readUTF();
-        this.posterUrl = dis.readUTF();
     }
 
 
