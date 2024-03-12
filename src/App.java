@@ -1,34 +1,70 @@
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) throws Exception {
         Dado l1 = new Dado("a", 1, "titulo", "overview", 10, 15, 5, "pt-br", 2, "horror,comedia", "lalala");
         Dado l2 = new Dado();
-
         Dado l3 = new Dado("a", 2, "abuble", "overview", 10, 15, 5, "pt-br", 2, "horror,comedia", "lalala");
         Dado l4 = new Dado();
-
         Header h = new Header(1);
-
         File path = new File("banco.db", "rw");
         
+        System.out.println("MENU CRUD");
+        System.out.println("c - create");
+        System.out.println("r - read");
+        System.out.println("u - update");
+        System.out.println("d - delete");
+        Scanner en = new Scanner(System.in);
+
+        char entry;
+        entry = en.next().charAt(0);
+
+        
+
+
+
 
         byte[] b;
         try {
-
             path.file();
 
             /* ESCRITA */
             //Cabeçalho
             b = h.toByteArray();
             path.createHeader(b);
+
+            switch (entry) {
+                case 'c':
+                    //l1
+                    b = l1.toByteArray();
+                    path.create(b);
+
+                    //l3
+                    b = l3.toByteArray();
+                    path.create(b);
+                    break;
             
-            //l1
-            b = l1.toByteArray();
-            path.create(b);
+                case 'r':
 
-            //l3
-            b = l3.toByteArray();
-            path.create(b);
+                    break;
 
+                case 'u':
+
+                    break;
+
+                case 'd':
+
+                    break;
+                
+                default:
+                System.out.println("Opção inválida");
+                    break;
+            }
+
+
+           
+            
+            
 
             /* LEITURA */
             l2 = path.read(l2, 4);
