@@ -8,14 +8,15 @@ public class Dado {
     protected String lapide, title, overview, genre;
     protected int id, popularity, quantityGenre;
 
+
     public Dado(){
 
     }
 
-    public Dado(String title, String overview, int popularity,
-                int quantityGenre, String genre){
-        lapide = "";
-        id = 1;
+    public Dado(int id, String title, String overview, int popularity,
+                int quantityGenre, String genre) throws IOException{
+        lapide = "-";
+        this.id = id;
         this.title = title;
         this.overview = overview;
         this.popularity = popularity;
@@ -43,7 +44,7 @@ public class Dado {
     public void fromByteArray(byte[] b) throws IOException {
         ByteArrayInputStream bais = new ByteArrayInputStream(b);
         DataInputStream dis = new DataInputStream(bais);
-        this.lapide = dis.readUTF();
+        //this.lapide = dis.readUTF();
         this.id = dis.readInt();
         this.title = dis.readUTF();
         this.overview = dis.readUTF();

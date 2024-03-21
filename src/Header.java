@@ -7,9 +7,18 @@ import java.io.IOException;
 public class Header {
     protected int lastID;
 
+    public Header(){
+
+    }
+
     public Header(int lastID){
         this.lastID = lastID;
     }
+
+    public void updateID(){
+        lastID = lastID+1;
+    }
+
 
     public byte[] toByteArray() throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
