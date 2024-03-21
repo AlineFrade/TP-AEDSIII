@@ -25,7 +25,7 @@ public class Dado {
     }
 
     public String toString() {
-        return "id: " + this.id + "| name: " + this.title + " | overview: " + this.overview;
+        return "id: " + this.id + " | name: " + this.title + " | overview: " + this.overview + " | popularidade: " + popularity + " | quantidade de generos: " + quantityGenre + " | generos: " + genre;
     }
 
     public byte[] toByteArray() throws IOException {
