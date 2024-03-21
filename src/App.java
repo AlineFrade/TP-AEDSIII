@@ -14,7 +14,7 @@ public class App {
 
         
         
-        
+        Dado movie = new Dado();
 
 
         byte[] b;
@@ -83,7 +83,7 @@ public class App {
                         break;
                 
                     case 'r':
-                        Dado movie = new Dado();
+                        movie = new Dado();
                         System.out.println("Informe o ID procurado.");
                         id = scan.nextInt();
 
@@ -93,6 +93,29 @@ public class App {
                         break;
 
                     case 'u':
+                        //movie = new Dado();
+                        System.out.println("Informe o ID a ser atualizado.");
+                        String stringID = reader.readLine();
+                        int updateID = Integer.parseInt(stringID);
+                        System.out.println("Título");
+                        String title = reader.readLine();
+                        System.out.println("Overview");
+                        String overview = reader.readLine();
+                        System.out.println("Popularidade");
+                        String input = reader.readLine();
+                        int popularity = Integer.parseInt(input);
+                        System.out.println("Quantidade de generos");
+                        String gen = reader.readLine();
+                        int quantityGenre = Integer.parseInt(gen);
+                        System.out.println("Generos");
+                        String genre = reader.readLine();
+
+                        movie = new Dado(updateID, title, overview, popularity, quantityGenre, genre);
+
+
+                        path.update(movie);
+
+                        System.out.println("Dado atualizado");
 
                         break;
 
