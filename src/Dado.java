@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
+// class used to create a data and manipulate the data
 public class Dado {
     protected String lapide, title, overview, genre;
     protected int id, popularity, quantityGenre;
@@ -13,6 +14,7 @@ public class Dado {
 
     }
 
+    // creation of a data with information given by the user
     public Dado(int id, String title, String overview, int popularity,
                 int quantityGenre, String genre) throws IOException{
         lapide = "-";
@@ -28,6 +30,7 @@ public class Dado {
         return "id: " + this.id + " | name: " + this.title + " | overview: " + this.overview + " | popularidade: " + popularity + " | quantidade de generos: " + quantityGenre + " | generos: " + genre;
     }
 
+    // convert the data to a array of bytes
     public byte[] toByteArray() throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         DataOutputStream dos = new DataOutputStream(baos);
@@ -41,10 +44,10 @@ public class Dado {
         return baos.toByteArray();
     }
 
+    // convert the array of bytes to data
     public void fromByteArray(byte[] b) throws IOException {
         ByteArrayInputStream bais = new ByteArrayInputStream(b);
         DataInputStream dis = new DataInputStream(bais);
-        //this.lapide = dis.readUTF();
         this.id = dis.readInt();
         this.title = dis.readUTF();
         this.overview = dis.readUTF();
@@ -52,6 +55,5 @@ public class Dado {
         this.quantityGenre = dis.readInt();
         this.genre = dis.readUTF();
     }
-
 
 }
